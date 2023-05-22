@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    cout << "Enter the size of Vector : ";
+    int n; cin >> n;
+    vector<int> v(n);
+    for(int i=0; i<n; i++){
+        cin >> v[i];
+    }
+    sort(v.begin(), v.end());
+    cout << "Enter the target number : ";
+    int target; cin >> target;
+    int lo = 0, hi = n-1, mid;
+    bool flag = false;
+    while (lo <= hi)
+    {
+        int mid = (lo+hi)/2;
+        if(v[mid] == target) {
+            flag = true;
+            cout << "Target Found." << endl << "Index is : " << mid << endl;
+            break;
+        }
+        else if(target < v[mid]) hi = mid-1;
+        else lo = mid+1; 
+    }
+    if(!flag) cout << "Not Found" << endl;
+    return 0;
+}
