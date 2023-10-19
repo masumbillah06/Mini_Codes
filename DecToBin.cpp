@@ -5,6 +5,7 @@ using namespace std;
 
 
 void binform(int n){
+    if(n==0) cout << 0;
     bool start = false;
     for(int i=31; i>=0; i--){
         int bit = (n>>i)&1;
